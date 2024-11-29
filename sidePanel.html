@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>Meet Add-on Side Panel</title>
+  <script src="https://www.gstatic.com/meetjs/addons/1.1.0/meet.addons.js"></script>
+</head>
+<body>
+  <div>This is the Add-on Side Panel. Only you can see this.</div>
+  <button id="start-activity">Launch Activity in Main Stage</button>
+  <script>
+    document.body.onload = () => {
+      // Library name ("helloWorld") is defined in the webpack config.
+      const addon = new MeetAddonExport();
+      const sidePanelClient = new MeetSidePanelClient();
+      sidePanelClient.startActivity();
+    };
+  </script>
+</body>
+</html>

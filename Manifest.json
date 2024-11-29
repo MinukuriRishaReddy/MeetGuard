@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "MeetGuard",
+  "version": "1.0",
+  "description": "Translates sign language into text or speech in real-time on Google Meet.",
+  "host_permissions": ["https://meet.google.com/*"],
+  "permissions": ["scripting", "tabs", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
